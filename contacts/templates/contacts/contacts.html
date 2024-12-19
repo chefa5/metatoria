@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/contacts.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <img src="{% static "deps/img/contacts.png" %}">
+    <section class="one">
+        <div class="cont">
+            <h1>Свяжитесь с нами и мы ответим на интересующие вас вопросы</h1>
+            <div class="contacts">
+                <div class="spanp">
+                    <span>Телефон</span>
+                    <p>+7 907 365-23-11</p>
+                </div>
+                <div class="spanp">
+                    <span>Email</span>
+                    <p>info@metatoriya@mail.ru</p>
+                </div>
+                <div class="spanp">
+                    <span>Адрес</span>
+                    <p>г. Ульяновск, ул. Ленина, д. 1</p>
+                </div>
+                <div class="spanp">
+                    <span>Часы работы</span>
+                    <p>Понедельник – Пятница: с 09:00 до 18:00</p>
+                </div>
+                <div class="social">
+                    <a><img src="{% static 'deps/img/mail.png'%}"></a>
+                    <a><img src="{% static 'deps/img/tg.png'%}"></a>
+                </div>
+            </div>
+        </div>
+        <div class="mailing">
+            <h2>Задайте свой вопрос</h2>
+            <div class="quest">
+                <input type="text" placeholder="E-mail">
+                <input type="text" placeholder="Имя">
+                <input type="textarea" placeholder="Сообщение">
+                <a href=""><div class="button-one">
+                    <p>Отправить сообщение</p>
+                    <img src="{% static 'deps/img/arrow.png'%}">
+                </div></a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock  %}

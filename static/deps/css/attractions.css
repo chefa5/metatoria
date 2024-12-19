@@ -1,0 +1,90 @@
+@import url("./footer.css");
+@import url("./header.css");
+@import url("./style.css");
+@import url("./about.css");
+
+.imgatt {
+    max-width: 1727px;
+    min-height: 850px;
+    background-image: url('../img/bogdanXXL.png');
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    border-radius: 30px;
+}
+
+.attrc {
+    margin-left: 93px;
+    padding-top: 170px;
+}
+
+.history {
+    gap: 0;
+    justify-content: space-between;
+    max-width: 1730px;
+}
+.history p {
+    
+    max-width: 730px;
+}
+
+.button-one {
+    width: 244px;
+    height: 52px;
+    font-size: 21px;
+    margin-right: 51px;
+    margin-bottom: 66px;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .attrc {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+
+    .history {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+    }
+
+    .history h4, .history h5, .history p {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .button-one {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Стили для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .attrc {
+        margin-left: 20px;
+        padding-top: 40px;
+    }
+
+    .history {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+    }
+
+    .history h4, .history h5, .history p {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .button-one {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR</title>
+    <link rel="stylesheet" href="{% static 'deps/css/auth_reg.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url "main:index" %}" class="logo"><img src="{% static 'deps/img/logo.png'%}"></a>
+    </header>
+    <main>
+        <div class="auth" id="auth">
+            <h5>Войти в аккаунт</h5>
+                <div class="auth_reg">
+                    <span class="voiti"><b>Вход</b></span>
+                    <span class="registr" id="registr">Регистрация</span>
+                </div>
+
+                <form method="post" action='{% url "users:auth" %}'>
+                    {% csrf_token %}
+                    
+                    {% for item in login_form %}
+                        {{ item }}
+                    {% endfor %}
+
+                    <span class="auth_reg">{{login_form.non_field_errors}}</span>
+
+                    <button class='button-one' type="submit" name="login">
+                        <p>Войти</p>
+                        <img src="{% static 'deps/img/arrow.png'%}">
+                    </button> 
+                </form>
+                 
+        </div>
+        <div class="reg" id="reg">
+            <h5>Создать аккаунт</h5>
+            <div class="auth_reg">
+                <span class="voiti" id="voiti">Вход</span>
+                <span class="registr" id="registr"><b>Регистрация</b></span>
+            </div>
+            <form method="post" action='{% url "users:auth" %}'>
+                {% csrf_token %}
+                {% for item in registration_form %}
+                    {{ item }}
+                {% endfor %}
+                
+        
+                {% if registration_form %}
+                    {% if registration_form.errors %}
+                    
+                        <script>
+                            var errors = "";
+                            {% for field in registration_form %}
+                                {% for error in field.errors %}
+                                    errors += "{{ error|escapejs }}\n";
+                                {% endfor %}
+                            {% endfor %}
+                            
+                            if (errors) {
+                                alert("Ошибка Регистрации!\n\n" + errors);
+                            }
+                        </script>
+
+                        {% for field in registration_form %}
+                            {% for error in field.errors %}
+                                <span class="auth_reg">{{ error }}</span>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+
+                <button class='button-one' type="submit">
+                    <p>Регистрация</p>
+                    <img src="{% static 'deps/img/arrow.png'%}">
+                </button>
+            </form>  
+        </div>
+    </main>
+</body>
+<script src="{% static 'deps/js/script.js' %}"></script>
+</html>

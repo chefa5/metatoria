@@ -1,0 +1,132 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/lk.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="left">
+        <div class="bio">
+        
+            <div class="avatar-div">
+                {% if user_info.image %}
+                    <img class="avatar" src="{{ user_info.image.url }}">
+                {% else %}
+                    <img class="avatar" src="{% static 'deps/img/empty.png' %}">
+                {% endif %}
+            </div>
+
+            <div class="info_down">
+                {% if user_info.first_name %}
+                    <h2>{{user_info.first_name}}</h2>
+                {% else %}
+                    <h2>Имя</h2>
+                {% endif %}
+                
+                    
+                <div class="phone">
+                    <span>Телефон</span>
+                    {% if user_info.phone_number %}
+                        <p>{{user_info.phone_number}}</p>
+                    {% else %}
+                        <p>Еще не заполнено</p>
+                    {% endif %} 
+                </div>
+
+                <div class="mail">
+                    <span>Email</span>
+                    <p>{{user_info.email}}</p>   
+                </div>
+
+            </div>
+
+           
+            <div class="info_up">
+                <form action='{% url "user:logout" %}'>
+                    <button class="button-logout button-one">
+                        <p>Выйти</p>
+                        <img src="{% static 'deps/img/arrow.png'%}">
+                    </button>
+                </form>
+                <button class="button-one button-change" onclick="togglePopup()">
+                    <p>Редактировать</p>
+                    <img src="{% static 'deps/img/arrow.png'%}">
+                </button>
+            </div>
+        </div>
+        <div class="bio_text">
+            <h6>Обо мне</h6>
+            {% if user_info.about_me %}
+                <p class="biotext">{{user_info.about_me}}</p>
+            {% else %}
+                <p class="biotext">Еще не заполнено</p>
+            {% endif %}
+            
+        </div>
+    </div>
+    <div class="right">
+        <div class="socials">
+            <p>Ссылки</p>
+            <div class="vk">
+                <img src="{% static 'deps/img/vk.png'%}">
+                {% if user_info.vk_contact %}
+                    <a href='{{user_info.vk_contact}}'>{{user_info.vk_contact}}</a>
+                {% else %}
+                    <p> Ещё не заполнено
+                {% endif %}
+            </div>
+
+            <div class="tg">
+                <img src="{% static 'deps/img/tg.png'%}">
+                {% if user_info.tg_contact %}
+                    <a href='{{user_info.tg_contact}}'>{{user_info.tg_contact}}</a>
+                {% else %}
+                    <p> Ещё не заполнено
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="popupOverlay" 
+         class="overlay-container">
+        <div class="popup-box">
+            <h2 style="color: Black;">Редактор профиля</h2>
+            <form class="form-container" method="post" action='{% url "users:profile" %}' enctype="multipart/form-data">
+                {% csrf_token %}
+                <label class="form-label">Аватар</label>
+                {{change_form.image}}
+                {{change_form.first_name}}
+                {{change_form.about_me}}
+                {{change_form.tg_contact}}
+                {{change_form.vk_contact}}
+                {{change_form.phone_number}}
+                
+                <button class="btn-submit" type="submit">Применить</button>
+            </form>
+            <button class="btn-close-popup" onclick="togglePopup()">Закрыть</button>
+        </div>
+    </div>
+
+
+            
+</main>
+<script>
+    var errors = "";
+    const phoneNumberField = document.getElementById('id_phone_number');
+    {% for field in change_form %}
+        {% for error in field.errors %}
+            errors += "{{ error|escapejs }}\n";
+        {% endfor %}
+    {% endfor %}
+    
+    if (errors) {
+        phoneNumberField.value = '';
+        alert("Ошибка редактирования!\n\n" + errors);
+    }
+    function togglePopup() {
+        const overlay = document.getElementById('popupOverlay');
+        overlay.classList.toggle('show');
+    }
+</script>
+{% endblock  %}

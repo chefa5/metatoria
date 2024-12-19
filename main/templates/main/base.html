@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR</title>
+    <!-- Css -->
+    {% block css %}
+    {% endblock %}
+    <!--  -->
+</head>
+<body>
+    <header>
+        <a href="{% url 'main:index' %}" class="logo"><img src="{% static 'deps/img/logo.png'%}"></a>
+        <ul class="navbar">
+            <li><a href="{% url 'main:index' %}"><b>Главная</b></a></li>
+            <li><a href="{% url 'about' %}">О проекте</a></li>
+            <li><a href="{% url 'attractions' %}">Достопримечательности</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+        <div class="lksearch">
+            <a href="{% url 'user:profile' %}" class="lk"><img src="{% static 'deps/img/lk.png'%}"></a>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div class="footer-up">    
+            <div class="left">
+                <a href="{% url 'main:index' %}" class="logo"><img src="{% static 'deps/img/logo.png'%}"></a>
+                <a href=""><div class="button-one">
+                    <p>Связаться с нами</p>
+                    <img src="{% static 'deps/img/arrow.png'%}">
+                </div></a>
+                <div class="social">
+                    <a><img src="{% static 'deps/img/mail.png'%}"></a>
+                    <a><img src="{% static 'deps/img/tg.png'%}"></a>
+                </div>
+            </div>
+            <div class="middle">
+                <ul>
+                    <li><a href="{% url 'main:index' %}"><b>Главная</b></a></li>
+                    <li><a href="{% url 'about' %}">О проекте</a></li>
+                    <li><a href="{% url 'attractions' %}">Достопримечательности</a></li>
+                    <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                    <li><a href="{% url 'user:profile' %}">Профиль</a></li>
+                </ul>
+                <ul>
+                    <li>Общие сведения</li>
+                    <li>Политика конфиденциальности</li>
+                    <li>Поддержка</li>
+                    <li>Правила сообщества</li>
+                </ul>
+            </div>
+            <div class="right">
+                <a class="search"><img src="{% static 'deps/img/search.png'%}"></a>
+                <textarea placeholder="Поиск" class="searchtext" contenteditable></textarea>
+            </div>
+        </div>
+        <div class="footer-down">
+            <img src="{% static 'deps/img/line2.png'%}">
+            <div class="copyright">
+                <img src="{% static 'deps/img/copyright.png' %}">
+                <p>2024, Ventura. Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'deps/js/script.js' %}"></script>
+</html>

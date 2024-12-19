@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/attractions.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    {% for card in cards %}
+    <div class="attrc" id="bog">
+        <div class="infoatt">
+            <div class="history">
+                <h4 id='{{card.id}}'>/0{{card.number}}</h4>
+                <h5>{{card.name}}</h5>
+                <p>{{card.description}}</p>
+            </div>
+        </div>
+        <div class="imgatt" style="background-image: url('{{ card.photo.url }}');">
+            <a href="{% url 'user:profile' %}"><div class="button-one">
+                <p>VR - экскурсия</p>
+                <img src="{% static "deps/img/arrow.png" %}">
+            </div></a>
+        </div>
+    </div>
+    {% endfor %}
+</main>
+{% endblock  %}

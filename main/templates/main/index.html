@@ -1,0 +1,68 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="one">
+        <div class="hellotext">
+            <div class="hello">
+                <h1>Приветствуем в виртуальном музее
+                    Ульяновска - Симбирска</h1>
+                <a href="#two"><div class="button-one">
+                    <p>Исследовать</p>
+                    <img src="{% static 'deps/img/arrow.png'%}">
+                </div></a>
+            </div>
+            <div class="readmore">
+                <p>Откройте для себя уникальную историю и культурное наследие нашего города через современные технологии.</p>
+                <span><a href="{% url 'about' %}">ЧИТАТЬ ДАЛЕЕ</a></span>
+            </div>
+        </div>
+        <div class="vrimg">
+            <img src="{% static 'deps/img/vr.png'%}">
+        </div>
+    </section>
+    <section class="two" id="two">
+        <div class="interakt">
+            <h2>Интерактивные экскурсии по 
+                знаковым местам</h2>
+            <h3>Взаимодействуйте с экспонатами и делитесь впечатлениями с друзьями в уникальном цифровом пространстве</h3>
+        </div>
+        <div class="minicards">
+            <div class="card">
+                <div class="cardtext">
+                    <p>Памятник Б. М. Хитрово</p>
+                    <a href="{% url 'attractions' %}#2"><img src="{% static 'deps/img/arrow3.png'%}"></a>
+                </div>
+            </div>
+            <div class="card"><a href="{% url 'attractions' %}#3"><img src="{% static 'deps/img/arrow3.png'%}"></a></div>
+            <div class="card"><a href="{% url 'attractions' %}#4"><img src="{% static 'deps/img/arrow3.png'%}"></a></div>
+            <div class="card"><a href="{% url 'attractions' %}#5"><img src="{% static 'deps/img/arrow3.png'%}"></a></div>
+            <div class="card"><a href="{% url 'attractions' %}#6"><img src="{% static 'deps/img/arrow3.png'%}"></a></div>
+        </div>
+    </section>
+    <section class="three">
+        <div class="news">
+            {% for new in news %}
+                <div class="cardnews">
+                    <span class="date">{{new.date.day}}.{{new.date.month}}.{{new.date.year}}</span>
+                    <p class="textnews">{{new.name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mailing">
+            <h2>Узнавайте первыми и участвуйте в жизни виртуального музея</h2>
+            <div><input type="text" placeholder="e-mail">
+                <a href=""><div class="button-one">
+                    <p>Подписаться на рассылку</p>
+                    <img src="{% static 'deps/img/arrow.png'%}">
+                </div></a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock  %}

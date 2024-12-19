@@ -1,0 +1,378 @@
+
+
+/* section one */
+.one {
+    background-image: url('../img/setka.png');
+    display: flex;
+    height: 1080px;
+    justify-content: center;
+    align-items: center;
+}
+
+.readmore p {
+    font-family: 'Muller';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #555555;
+    width: 241px;
+}
+
+.readmore span {
+    font-family: 'Muller';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.hellotext {
+    margin-left: 102px;
+    display: flex;
+    flex-direction: column;
+    gap: 241px;
+    margin-top: 180px;
+}
+
+.hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 29px;
+}
+.readmore {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* section two */
+
+.two {
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 270px;
+}
+
+.interakt {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+}
+
+.minicards {
+    width: 1050px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.card {
+    font-family: 'Muller';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: white;
+    max-width: 450px;
+    min-height: 600px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.card:nth-child(1) {
+    width: 450px;
+    background-image: url(../img/bogdan.png);
+}
+
+.card:nth-child(2) {
+    width: 140px;
+    background-image: url(../img/yo.png);
+}
+
+.card:nth-child(3) {
+    width: 140px;
+    background-image: url(../img/gonch.png);
+}
+
+.card:nth-child(4) {
+    width: 140px;
+    background-image: url(../img/kup.png);
+}
+
+.card:nth-child(5) {
+    width: 140px;
+    background-image: url(../img/dram.png);
+}
+
+.cardtext {
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 49px;
+}
+
+.card a:hover {
+    transform: rotate(-90deg);
+    
+}
+
+/* section three */
+
+.three {
+    margin-top: 272px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 73px;
+}
+
+.mailing {
+    width: 669px;
+    height: 628px;
+    border-radius: 30px;
+    background-color: rgba(85, 85, 85, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 70px;
+    padding-left: 69px;
+}
+
+.mailing input {
+    width: 298px;
+    height: 24px;
+    border-bottom: 1px solid #555555;
+}
+
+.mailing .button-one {
+    margin-top: 23px;
+    width: 298px;
+    height: 44px;
+    font-size: 18px;
+}
+
+.mailing .button-one img {
+    width: 39px;
+    height: 39px;
+}
+
+.cardnews:hover {
+    background-color: rgba(85, 85, 85, 0.1);
+    border-radius: 30px;
+    width: 975px;
+    height: 104px;
+}
+
+.cardnews {
+    display: flex;
+    width: 975px;
+    height: 104px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.date {
+    font-family: Muller;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #555555;
+}
+
+.textnews {
+    font-family: Muller;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: black;
+    width: 450px;
+}
+
+.news {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 37px;
+}
+
+.btnews:hover img {
+    transform: rotate(-90deg);
+}
+@media (max-width: 768px) {
+    .one {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .hellotext {
+        margin-left: 0;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .hello {
+        align-items: center;
+    }
+
+    .readmore {
+        align-items: center;
+    }
+
+    .vrimg img {
+        width: 100%;
+        height: auto;
+    }
+
+    .two {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .interakt {
+        align-items: center;
+    }
+
+    .minicards {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .three {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mailing {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .mailing input {
+        width: 100%;
+    }
+
+    .cardnews {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .date, .textnews {
+        width: 100%;
+    }
+}
+
+/* Стили для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .one {
+        flex-direction: column;
+        height: auto;
+        padding: 40px;
+    }
+
+    .hellotext {
+        margin-left: 0;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .hello {
+        align-items: center;
+    }
+
+    .readmore {
+        align-items: center;
+    }
+
+    .vrimg img {
+        width: 100%;
+        height: auto;
+    }
+
+    .two {
+        flex-direction: column;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .interakt {
+        align-items: center;
+    }
+
+    .minicards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .card {
+        width: calc(50% - 10px);
+        height: auto;
+    }
+
+    .three {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .mailing {
+        width: 100%;
+        height: auto;
+        padding: 40px;
+    }
+
+    .mailing input {
+        width: 100%;
+    }
+
+    .cardnews {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .date, .textnews {
+        width: 100%;
+    }
+}
